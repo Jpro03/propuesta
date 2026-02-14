@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>💍 ¿Quieres ser mi novia?</title>
+
+<style>
+:root{
+  --rosa:#ff4d6d;
+  --vino:#c9184a;
+  --fondo1:#ffe5ec;
+  --fondo2:#fff0f3;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: system-ui, sans-serif;
+  background: radial-gradient(circle at top, var(--fondo2), var(--fondo1));
+  text-align:center;
+  overflow-x:hidden;
+}
+
+.contenedor{
+  width:min(700px, 92vw);
+  margin:auto;
+  padding:40px 0 60px 0;
+  position:relative;
+  z-index:1;
+}
+
+h1{
+  color:var(--vino);
+  font-size: clamp(26px, 5vw, 40px);
+}
+
+.card{
+  background:#ffffffee;
+  border-radius:18px;
+  padding:25px;
+  margin:20px 0;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+.btn{
+  background: linear-gradient(135deg, var(--rosa), var(--vino));
+  border:none;
+  padding:12px 22px;
+  border-radius:12px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  margin:8px;
+}
+
+.btn-sec{
+  background:white;
+  color:var(--vino);
+  border:1px solid var(--vino);
+}
+
+.zonaBotones{
+  position:relative;
+  height:80px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:15px;
+}
+
+.corazon{
+  position:fixed;
+  top:-10vh;
+  font-size:24px;
+  animation: caer linear infinite;
+  pointer-events:none;
+}
+
+@keyframes caer{
+  to{
+    transform:translateY(120vh) rotate(360deg);
+    opacity:0.2;
+  }
+}
+
+.final{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  justify-content:center;
+  align-items:center;
+}
+
+.finalCard{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  width:min(500px,90vw);
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" preload="auto" loop>
+  <source src="./cancion.mp3" type="audio/mpeg">
+</audio>
+
+<div class="contenedor">
+
+<h1>Tengo algo importante que preguntarte… 💭</h1>
+
+<div class="card">
+  <p>
+    Desde que apareciste en mi vida todo se siente diferente.  
+    Me haces reír, me haces sentir tranquilo y feliz. 💖  
+    <br><br>
+    No quiero seguir diciendo que solo me gustas…  
+    quiero algo más contigo.
+  </p>
+</div>
+
+<div class="card">
+  <h2 style="color:#c9184a;">Entonces…</h2>
+  <p style="font-weight:bold; font-size:20px; color:#c9184a;">
+    ¿Quieres ser mi novia? 💍
+  </p>
+
+  <div class="zonaBotones">
+    <button class="btn" onclick="aceptar()">SÍIIII 💖</button>
+    <button class="btn btn
