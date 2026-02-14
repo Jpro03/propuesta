@@ -3,52 +3,60 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>💙 ¿Quieres ser mi novio?</title>
+<title>💙 Para Alex</title>
 
 <style>
 :root{
   --azul:#0f172a;
   --azul2:#1e293b;
   --dorado:#facc15;
-  --fondo1:#0b1120;
-  --fondo2:#111827;
 }
 
 body{
   margin:0;
-  min-height:100vh;
-  font-family: system-ui, sans-serif;
-  background: linear-gradient(135deg, var(--fondo1), var(--fondo2));
+  font-family:system-ui, sans-serif;
+  background:linear-gradient(135deg,#0b1120,#111827);
   color:white;
   text-align:center;
-  overflow-x:hidden;
 }
 
 .contenedor{
-  width:min(700px, 92vw);
+  width:min(900px,92vw);
   margin:auto;
-  padding:50px 0 70px 0;
-  position:relative;
-  z-index:1;
+  padding:40px 0 80px 0;
 }
 
 h1{
   color:var(--dorado);
-  font-size: clamp(26px, 5vw, 40px);
+  font-size: clamp(26px,5vw,42px);
 }
 
 .card{
   background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
   border-radius:18px;
   padding:25px;
   margin:25px 0;
-  box-shadow:0 15px 40px rgba(0,0,0,.5);
-  backdrop-filter: blur(8px);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(8px);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  margin-top:20px;
+}
+
+.grid img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.5);
 }
 
 .btn{
-  background: linear-gradient(135deg, var(--dorado), #eab308);
+  background:linear-gradient(135deg,var(--dorado),#eab308);
   border:none;
   padding:12px 22px;
   border-radius:12px;
@@ -60,8 +68,8 @@ h1{
 
 .btn-sec{
   background:transparent;
-  color:white;
   border:1px solid var(--dorado);
+  color:white;
 }
 
 .zonaBotones{
@@ -73,26 +81,11 @@ h1{
   gap:15px;
 }
 
-.corazon{
-  position:fixed;
-  top:-10vh;
-  font-size:22px;
-  animation: caer linear infinite;
-  pointer-events:none;
-}
-
-@keyframes caer{
-  to{
-    transform:translateY(120vh) rotate(360deg);
-    opacity:0.2;
-  }
-}
-
 .final{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.8);
+  background:rgba(0,0,0,.85);
   justify-content:center;
   align-items:center;
 }
@@ -103,6 +96,21 @@ h1{
   border-radius:20px;
   width:min(520px,90vw);
   border:1px solid var(--dorado);
+}
+
+.corazon{
+  position:fixed;
+  top:-10vh;
+  font-size:22px;
+  animation:caer linear infinite;
+  pointer-events:none;
+}
+
+@keyframes caer{
+  to{
+    transform:translateY(120vh) rotate(360deg);
+    opacity:0.2;
+  }
 }
 </style>
 </head>
@@ -115,22 +123,34 @@ h1{
 
 <div class="contenedor">
 
-<h1>Hay algo que quiero preguntarte… 💙</h1>
+<h1>Alex… 💙</h1>
 
 <div class="card">
-  <p>
-    Desde que llegaste a mi vida todo tiene más sentido.  
-    Me das paz, seguridad y felicidad.  
+  <p style="font-size:18px; line-height:1.6;">
+    Desde que llegaste a mi vida todo cambió para mejor.  
+    Contigo he aprendido que el amor es tranquilidad, complicidad y alegría.  
     <br><br>
-    No quiero que seas solo alguien especial…  
-    quiero que seas mi persona.
+    Cada recuerdo contigo es un tesoro que quiero seguir construyendo.
   </p>
 </div>
 
 <div class="card">
-  <h2 style="color:var(--dorado);">Entonces…</h2>
-  <p style="font-weight:bold; font-size:20px; color:var(--dorado);">
-    ¿Quieres ser mi novio? 💍
+  <h2 style="color:var(--dorado);">Nuestros momentos 💫</h2>
+
+  <div class="grid">
+    <img src="imagen1.jpg">
+<img src="imagen2.jpg">
+<img src="imagen3.jpg">
+<img src="imagen4.jpg">
+<img src="imagen5.jpg">
+
+  </div>
+</div>
+
+<div class="card">
+  <h2 style="color:var(--dorado);">Y ahora quiero preguntarte algo muy importante…</h2>
+  <p style="font-size:20px; font-weight:bold; color:var(--dorado);">
+    Alex, ¿quieres ser mi novio? 💍
   </p>
 
   <div class="zonaBotones">
@@ -145,38 +165,38 @@ h1{
 
 <div class="final" id="final">
   <div class="finalCard">
-    <h2 style="color:var(--dorado);">💙 Ahora somos novios 💙</h2>
-    <p style="font-weight:bold; font-size:18px; line-height:1.6;">
+    <h2 style="color:var(--dorado);">💙 Alex 💙</h2>
+    <p style="font-size:18px; line-height:1.6;">
       Prometo amarte en esta vida  
       y en mil vidas más. ✨💍  
       <br><br>
-      Este es nuestro comienzo.
+      Gracias por decir que sí.
     </p>
   </div>
 </div>
 
 <script>
-const musica = document.getElementById("musica");
-const btnNo = document.getElementById("btnNo");
-const mensajeNo = document.getElementById("mensajeNo");
+const musica=document.getElementById("musica");
+const btnNo=document.getElementById("btnNo");
+const mensajeNo=document.getElementById("mensajeNo");
 
 function aceptar(){
   musica.play().catch(()=>{});
   document.getElementById("final").style.display="flex";
-  for(let i=0;i<25;i++){
+  for(let i=0;i<30;i++){
     setTimeout(crearCorazon,i*40);
   }
 }
 
 function moverNo(){
-  const dx = Math.floor((Math.random()*200)-100);
-  const dy = Math.floor((Math.random()*50)-25);
+  const dx=Math.floor((Math.random()*200)-100);
+  const dy=Math.floor((Math.random()*50)-25);
   btnNo.style.transform=`translate(${dx}px,${dy}px)`;
-  mensajeNo.textContent="¿Seguro que no? 💙";
+  mensajeNo.textContent="¿Seguro que no, Alex? 💙";
 }
 
-btnNo.addEventListener("mouseenter", moverNo);
-btnNo.addEventListener("click", moverNo);
+btnNo.addEventListener("mouseenter",moverNo);
+btnNo.addEventListener("click",moverNo);
 
 function crearCorazon(){
   const h=document.createElement("div");
