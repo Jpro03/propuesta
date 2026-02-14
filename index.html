@@ -3,21 +3,23 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>💍 ¿Quieres ser mi novia?</title>
+<title>💙 ¿Quieres ser mi novio?</title>
 
 <style>
 :root{
-  --rosa:#ff4d6d;
-  --vino:#c9184a;
-  --fondo1:#ffe5ec;
-  --fondo2:#fff0f3;
+  --azul:#0f172a;
+  --azul2:#1e293b;
+  --dorado:#facc15;
+  --fondo1:#0b1120;
+  --fondo2:#111827;
 }
 
 body{
   margin:0;
   min-height:100vh;
   font-family: system-ui, sans-serif;
-  background: radial-gradient(circle at top, var(--fondo2), var(--fondo1));
+  background: linear-gradient(135deg, var(--fondo1), var(--fondo2));
+  color:white;
   text-align:center;
   overflow-x:hidden;
 }
@@ -25,39 +27,41 @@ body{
 .contenedor{
   width:min(700px, 92vw);
   margin:auto;
-  padding:40px 0 60px 0;
+  padding:50px 0 70px 0;
   position:relative;
   z-index:1;
 }
 
 h1{
-  color:var(--vino);
+  color:var(--dorado);
   font-size: clamp(26px, 5vw, 40px);
 }
 
 .card{
-  background:#ffffffee;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
   border-radius:18px;
   padding:25px;
-  margin:20px 0;
-  box-shadow:0 15px 40px rgba(0,0,0,.2);
+  margin:25px 0;
+  box-shadow:0 15px 40px rgba(0,0,0,.5);
+  backdrop-filter: blur(8px);
 }
 
 .btn{
-  background: linear-gradient(135deg, var(--rosa), var(--vino));
+  background: linear-gradient(135deg, var(--dorado), #eab308);
   border:none;
   padding:12px 22px;
   border-radius:12px;
-  color:white;
+  color:#111;
   font-weight:bold;
   cursor:pointer;
   margin:8px;
 }
 
 .btn-sec{
-  background:white;
-  color:var(--vino);
-  border:1px solid var(--vino);
+  background:transparent;
+  color:white;
+  border:1px solid var(--dorado);
 }
 
 .zonaBotones{
@@ -72,7 +76,7 @@ h1{
 .corazon{
   position:fixed;
   top:-10vh;
-  font-size:24px;
+  font-size:22px;
   animation: caer linear infinite;
   pointer-events:none;
 }
@@ -88,16 +92,17 @@ h1{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.6);
+  background:rgba(0,0,0,.8);
   justify-content:center;
   align-items:center;
 }
 
 .finalCard{
-  background:white;
-  padding:30px;
+  background:var(--azul2);
+  padding:35px;
   border-radius:20px;
-  width:min(500px,90vw);
+  width:min(520px,90vw);
+  border:1px solid var(--dorado);
 }
 </style>
 </head>
@@ -110,24 +115,80 @@ h1{
 
 <div class="contenedor">
 
-<h1>Tengo algo importante que preguntarte… 💭</h1>
+<h1>Hay algo que quiero preguntarte… 💙</h1>
 
 <div class="card">
   <p>
-    Desde que apareciste en mi vida todo se siente diferente.  
-    Me haces reír, me haces sentir tranquilo y feliz. 💖  
+    Desde que llegaste a mi vida todo tiene más sentido.  
+    Me das paz, seguridad y felicidad.  
     <br><br>
-    No quiero seguir diciendo que solo me gustas…  
-    quiero algo más contigo.
+    No quiero que seas solo alguien especial…  
+    quiero que seas mi persona.
   </p>
 </div>
 
 <div class="card">
-  <h2 style="color:#c9184a;">Entonces…</h2>
-  <p style="font-weight:bold; font-size:20px; color:#c9184a;">
-    ¿Quieres ser mi novia? 💍
+  <h2 style="color:var(--dorado);">Entonces…</h2>
+  <p style="font-weight:bold; font-size:20px; color:var(--dorado);">
+    ¿Quieres ser mi novio? 💍
   </p>
 
   <div class="zonaBotones">
-    <button class="btn" onclick="aceptar()">SÍIIII 💖</button>
-    <button class="btn btn
+    <button class="btn" onclick="aceptar()">SÍ 💙</button>
+    <button class="btn btn-sec" id="btnNo">No 🙈</button>
+  </div>
+
+  <div id="mensajeNo" style="margin-top:10px; font-weight:bold; color:var(--dorado);"></div>
+</div>
+
+</div>
+
+<div class="final" id="final">
+  <div class="finalCard">
+    <h2 style="color:var(--dorado);">💙 Ahora somos novios 💙</h2>
+    <p style="font-weight:bold; font-size:18px; line-height:1.6;">
+      Prometo amarte en esta vida  
+      y en mil vidas más. ✨💍  
+      <br><br>
+      Este es nuestro comienzo.
+    </p>
+  </div>
+</div>
+
+<script>
+const musica = document.getElementById("musica");
+const btnNo = document.getElementById("btnNo");
+const mensajeNo = document.getElementById("mensajeNo");
+
+function aceptar(){
+  musica.play().catch(()=>{});
+  document.getElementById("final").style.display="flex";
+  for(let i=0;i<25;i++){
+    setTimeout(crearCorazon,i*40);
+  }
+}
+
+function moverNo(){
+  const dx = Math.floor((Math.random()*200)-100);
+  const dy = Math.floor((Math.random()*50)-25);
+  btnNo.style.transform=`translate(${dx}px,${dy}px)`;
+  mensajeNo.textContent="¿Seguro que no? 💙";
+}
+
+btnNo.addEventListener("mouseenter", moverNo);
+btnNo.addEventListener("click", moverNo);
+
+function crearCorazon(){
+  const h=document.createElement("div");
+  h.className="corazon";
+  h.textContent="💙";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(4+Math.random()*4)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),9000);
+}
+setInterval(crearCorazon,300);
+</script>
+
+</body>
+</html>
